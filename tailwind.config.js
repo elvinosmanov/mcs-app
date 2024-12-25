@@ -1,3 +1,7 @@
+import forms from '@tailwindcss/forms'
+import typography from '@tailwindcss/typography'
+import aspectRatio from '@tailwindcss/aspect-ratio'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -8,7 +12,5 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [forms, typography, aspectRatio],
 } 
