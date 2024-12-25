@@ -10,4 +10,5 @@ export default {
         // Remove or comment out plugins you haven't installed
         // Only include the plugins you actually need
     ],
+    darkMode: "class",
 };

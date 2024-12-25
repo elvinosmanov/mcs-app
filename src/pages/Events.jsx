@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { format, formatInTimeZone } from "date-fns";
+import { format } from "date-fns";
+import { formatInTimeZone } from "date-fns-tz";
 import { CSVLink } from "react-csv";
 import {
     ChevronLeftIcon,
@@ -236,7 +237,7 @@ export default function Events() {
     });
     const [showDetailModal, setShowDetailModal] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
-    const [activeTab, setActiveTab] = useState('details');
+    const [activeTab, setActiveTab] = useState("details");
 
     const getSeverityColor = (severity) => {
         switch (severity.toLowerCase()) {
@@ -365,28 +366,28 @@ export default function Events() {
                         <div className="border-b border-gray-200 mb-4">
                             <nav className="-mb-px flex">
                                 <button
-                                    onClick={() => setActiveTab('details')}
+                                    onClick={() => setActiveTab("details")}
                                     className={`${
-                                        activeTab === 'details'
-                                            ? 'border-blue-500 text-blue-600'
-                                            : 'border-transparent text-gray-500'
+                                        activeTab === "details"
+                                            ? "border-blue-500 text-blue-600"
+                                            : "border-transparent text-gray-500"
                                     } py-2 px-4 border-b-2`}
                                 >
                                     Details
                                 </button>
                                 <button
-                                    onClick={() => setActiveTab('history')}
+                                    onClick={() => setActiveTab("history")}
                                     className={`${
-                                        activeTab === 'history'
-                                            ? 'border-blue-500 text-blue-600'
-                                            : 'border-transparent text-gray-500'
+                                        activeTab === "history"
+                                            ? "border-blue-500 text-blue-600"
+                                            : "border-transparent text-gray-500"
                                     } py-2 px-4 border-b-2`}
                                 >
                                     History
                                 </button>
                             </nav>
                         </div>
-                        {activeTab === 'details' && (
+                        {activeTab === "details" && (
                             <>
                                 {Object.entries(selectedEvent).map(
                                     ([key, value]) =>

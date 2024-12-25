@@ -30,11 +30,11 @@ function SettingRow({ label, children, description = null }) {
     return (
         <div className="flex items-center justify-between py-3">
             <div className="flex-1 pr-4">
-                <label className="text-sm font-medium text-gray-900 dark:text-gray-100">
+                <label className="text-sm font-medium text-gray-900">
                     {label}
                 </label>
                 {description && (
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                    <p className="text-xs text-gray-500 mt-0.5">
                         {description}
                     </p>
                 )}
@@ -127,11 +127,11 @@ export default function Settings() {
     return (
         <div className="p-6 space-y-6 pb-20">
             {/* Alarm Panel Settings */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-                <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200">
+                <div className="p-4 border-b border-gray-200">
                     <div className="flex items-center gap-2">
-                        <BellIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                        <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                        <BellIcon className="w-5 h-5 text-indigo-600" />
+                        <h2 className="text-base font-semibold text-gray-900">
                             Alarm Panel
                         </h2>
                     </div>
@@ -188,11 +188,11 @@ export default function Settings() {
             </div>
 
             {/* Notification Settings */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-                <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200">
+                <div className="p-4 border-b border-gray-200">
                     <div className="flex items-center gap-2">
-                        <SpeakerWaveIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                        <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                        <SpeakerWaveIcon className="w-5 h-5 text-indigo-600" />
+                        <h2 className="text-base font-semibold text-gray-900">
                             Notifications
                         </h2>
                     </div>
@@ -272,11 +272,11 @@ export default function Settings() {
             </div>
 
             {/* Display Settings */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-                <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200">
+                <div className="p-4 border-b border-gray-200">
                     <div className="flex items-center gap-2">
-                        <SwatchIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                        <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                        <SwatchIcon className="w-5 h-5 text-indigo-600" />
+                        <h2 className="text-base font-semibold text-gray-900">
                             Display
                         </h2>
                     </div>
@@ -335,11 +335,11 @@ export default function Settings() {
             </div>
 
             {/* Color Settings */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-                <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200">
+                <div className="p-4 border-b border-gray-200">
                     <div className="flex items-center gap-2">
-                        <EyeDropperIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                        <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                        <EyeDropperIcon className="w-5 h-5 text-indigo-600" />
+                        <h2 className="text-base font-semibold text-gray-900">
                             Colors
                         </h2>
                     </div>
@@ -367,11 +367,11 @@ export default function Settings() {
             </div>
 
             {/* Data Settings */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-                <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200">
+                <div className="p-4 border-b border-gray-200">
                     <div className="flex items-center gap-2">
-                        <TableCellsIcon className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-                        <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
+                        <TableCellsIcon className="w-5 h-5 text-indigo-600" />
+                        <h2 className="text-base font-semibold text-gray-900">
                             Data
                         </h2>
                     </div>
