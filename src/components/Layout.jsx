@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation, Outlet } from "react-router-dom";
 import {
     HomeIcon,
@@ -7,12 +7,14 @@ import {
     ClockIcon,
     Cog6ToothIcon,
     InformationCircleIcon,
+    ChevronDoubleLeftIcon,
+    ChevronDoubleRightIcon,
 } from "@heroicons/react/24/outline";
 import Logo from "./Logo";
 import AlarmPanel from "./AlarmPanel";
 
 export default function Layout() {
-    console.log("Layout rendering");
+    const [isCollapsed, setIsCollapsed] = useState(false);
     const location = useLocation();
     const isAlarmPage = location.pathname === "/alarms";
 
@@ -33,13 +35,33 @@ export default function Layout() {
         <div className="min-h-screen bg-gray-50">
             <div className="flex h-screen overflow-hidden">
                 {/* Sidebar */}
-                <div className="w-64 bg-white border-r border-gray-200 flex flex-col">
-                    {/* Logo section stays at top */}
-                    <div className="p-4 border-b border-gray-200">
-                        <Logo />
+                <div
+                    className={`bg-white border-r border-gray-200 flex flex-col transform transition-all ease-in-out duration-300 ${
+                        isCollapsed ? "w-16" : "w-64"
+                    }`}
+                >
+                    {/* Logo section */}
+                    <div className="p-4 border-b border-gray-200 flex justify-between items-center">
+                        <div
+                            className={`transform transition-transform ease-in-out duration-300 ${
+                                isCollapsed ? "scale-0 w-0" : "scale-100 w-auto"
+                            }`}
+                        >
+                            <Logo />
+                        </div>
+                        <button
+                            onClick={() => setIsCollapsed(!isCollapsed)}
+                            className="p-1 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+                        >
+                            {isCollapsed ? (
+                                <ChevronDoubleRightIcon className="w-5 h-5 text-gray-500 transition-transform duration-200 ease-in-out" />
+                            ) : (
+                                <ChevronDoubleLeftIcon className="w-5 h-5 text-gray-500 transition-transform duration-200 ease-in-out" />
+                            )}
+                        </button>
                     </div>
 
-                    {/* Main navigation */}
+                    {/* Navigation */}
                     <nav className="flex-1 px-2 py-4 space-y-1">
                         {navigation.map((item) => {
                             const Icon = item.icon;
@@ -47,21 +69,34 @@ export default function Layout() {
                                 <Link
                                     key={item.name}
                                     to={item.path}
-                                    className={`flex items-center px-4 py-3 text-sm rounded-md transition-colors ${
+                                    className={`flex items-center transform transition-all ease-in-out duration-300 ${
+                                        isCollapsed
+                                            ? "justify-center px-2"
+                                            : "px-4"
+                                    } py-3 text-sm rounded-md ${
                                         location.pathname === item.path
                                             ? "bg-indigo-50 text-indigo-600"
                                             : "text-gray-600 hover:bg-gray-50"
                                     }`}
                                 >
-                                    <Icon className="h-5 w-5 mr-3" />
-                                    {item.name}
+                                    <Icon
+                                        className={`transform transition-all ease-in-out duration-300 ${
+                                            isCollapsed ? "h-6 w-6" : "h-5 w-5"
+                                        }`}
+                                    />
+                                    <span
+                                        className={`transform transition-all ease-in-out duration-300 ${
+                                            isCollapsed
+                                                ? "opacity-0 w-0 -translate-x-4"
+                                                : "opacity-100 w-auto translate-x-0 ml-3"
+                                        }`}
+                                    >
+                                        {item.name}
+                                    </span>
                                 </Link>
                             );
                         })}
                     </nav>
-
-                    {/* Bottom navigation section */}
-                    <div className="border-t border-gray-200"></div>
                 </div>
 
                 {/* Main content */}

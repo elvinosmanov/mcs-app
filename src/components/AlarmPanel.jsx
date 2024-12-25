@@ -41,32 +41,39 @@ export default function AlarmPanel() {
         .slice(0, settings.alarmPanel.maxVisibleAlarms);
 
     // Create audio instance
-    const alarmSound = new Audio('/sounds/alarm.mp3');
-    
+    const alarmSound = new Audio("/sounds/alarm.mp3");
+
     // Play sound for new alarms
     useEffect(() => {
         if (!settings.notifications.soundEnabled) return;
 
-        const newAlarms = alarms.filter(alarm => 
-            alarm.status === 'active' && 
-            (settings.notifications.criticalAlarmSound ? alarm.severity === 'critical' : true)
+        const newAlarms = alarms.filter(
+            (alarm) =>
+                alarm.status === "active" &&
+                (settings.notifications.criticalAlarmSound
+                    ? alarm.severity === "critical"
+                    : true)
         );
 
         if (newAlarms.length > 0) {
             // Set volume based on settings
             alarmSound.volume = settings.notifications.soundVolume / 100;
-            
+
             // Play sound
-            alarmSound.play().catch(error => {
-                console.error('Error playing alarm sound:', error);
+            alarmSound.play().catch((error) => {
+                console.error("Error playing alarm sound:", error);
             });
 
             // Show browser notification if enabled
-            if (settings.notifications.browserNotifications && 
-                Notification.permission === 'granted') {
-                new Notification('New Alarm', {
-                    body: `${newAlarms.length} new alarm${newAlarms.length > 1 ? 's' : ''}`,
-                    icon: '/icon.png'  // Optional: add an icon
+            if (
+                settings.notifications.browserNotifications &&
+                Notification.permission === "granted"
+            ) {
+                new Notification("New Alarm", {
+                    body: `${newAlarms.length} new alarm${
+                        newAlarms.length > 1 ? "s" : ""
+                    }`,
+                    icon: "/icon.png", // Optional: add an icon
                 });
             }
         }
