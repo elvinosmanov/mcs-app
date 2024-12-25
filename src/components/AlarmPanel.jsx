@@ -13,7 +13,7 @@ import {
 import { useAlarms } from "../contexts/AlarmContext";
 import { useSettings } from "../contexts/SettingsContext";
 
-export default function AlarmPanel() {
+const AlarmPanel = ({ className }) => {
     const { settings } = useSettings();
     const [isExpanded, setIsExpanded] = useState(
         settings.alarmPanel.defaultExpanded
@@ -114,9 +114,9 @@ export default function AlarmPanel() {
 
     return (
         <div
-            className={`fixed bottom-0 left-64 right-0 bg-white/90 backdrop-blur-sm border-t border-gray-200 shadow-lg transition-all duration-300 ease-in-out transform z-50 ${
+            className={`fixed bottom-0 right-0 bg-white/90 backdrop-blur-sm border-t border-gray-200 shadow-lg transition-all duration-300 ease-in-out transform z-50 ${
                 isExpanded ? "h-80" : "h-9"
-            }`}
+            } ${className}`}
         >
             {/* Header Bar */}
             <div className="absolute top-0 left-0 right-0 h-9 bg-white/90 backdrop-blur-sm border-b border-gray-200/50 flex items-center justify-between px-3">
@@ -147,12 +147,12 @@ export default function AlarmPanel() {
                     >
                         View All
                     </Link>
-                    <button
+                    {/* <button
                         onClick={() => setIsExpanded(false)}
                         className="p-1 hover:bg-gray-100 rounded"
                     >
                         <XMarkIcon className="w-4 h-4 text-gray-500" />
-                    </button>
+                    </button> */}
                 </div>
             </div>
 
@@ -272,4 +272,6 @@ export default function AlarmPanel() {
             </div>
         </div>
     );
-}
+};
+
+export default AlarmPanel;

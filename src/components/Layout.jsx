@@ -15,6 +15,7 @@ import AlarmPanel from "./AlarmPanel";
 
 export default function Layout() {
     const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isNavCollapsed, setIsNavCollapsed] = useState(false);
     const location = useLocation();
     const isAlarmPage = location.pathname === "/alarms";
 
@@ -110,7 +111,11 @@ export default function Layout() {
             </div>
 
             {/* Alarm Panel */}
-            {!isAlarmPage && <AlarmPanel />}
+            {!isAlarmPage && (
+                <AlarmPanel
+                    className={`${isCollapsed ? "left-16" : "left-64"}`}
+                />
+            )}
         </div>
     );
 }
