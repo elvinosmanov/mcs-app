@@ -4,7 +4,6 @@ import {
     SpeakerWaveIcon,
     SwatchIcon,
     TableCellsIcon,
-    CheckIcon,
     EyeDropperIcon,
 } from "@heroicons/react/24/outline";
 import { Switch } from "@headlessui/react";
@@ -126,7 +125,7 @@ export default function Settings() {
     const { settings, updateSettings } = useSettings();
 
     return (
-        <div className="max-w-2xl mx-auto p-6 space-y-6">
+        <div className="p-6 space-y-6 pb-20">
             {/* Alarm Panel Settings */}
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
                 <div className="p-4 border-b border-gray-200 dark:border-gray-700">
@@ -232,13 +231,22 @@ export default function Settings() {
                                     className="w-32"
                                 />
                             </SettingRow>
-                            <SettingRow 
+                            <SettingRow
                                 label="Critical Alarms Only"
                                 description="Only play sound for critical alarms"
                             >
                                 <ToggleSwitch
-                                    enabled={settings.notifications.criticalAlarmSound}
-                                    onChange={(value) => updateSettings('notifications', 'criticalAlarmSound', value)}
+                                    enabled={
+                                        settings.notifications
+                                            .criticalAlarmSound
+                                    }
+                                    onChange={(value) =>
+                                        updateSettings(
+                                            "notifications",
+                                            "criticalAlarmSound",
+                                            value
+                                        )
+                                    }
                                 />
                             </SettingRow>
                         </>
